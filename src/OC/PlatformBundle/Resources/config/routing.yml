@@ -1,0 +1,42 @@
+oc_platform_homepage:
+    path:     /{page}
+    defaults:  
+        _controller: OCPlatformBundle:Annonce:index
+        page:        1
+    requirements:
+        page: \d*
+
+
+oc_platform_unepage:
+    path:     /une
+    defaults: { _controller: OCPlatformBundle:Annonce:unepage }
+oc_platform_deuxpages:
+    path:     /deux
+    defaults: { _controller: OCPlatformBundle:Annonce:deuxpages }
+    
+oc_platform_slug:
+    path:    /trois/{year}/{slug}.{format}
+    defaults: 
+         _controller: OCPlatformBundle:Annonce:troispagesSlug 
+         format:    html
+    requirements:
+        
+        year:   \d{4}
+        format: html|xml
+
+oc_platform_cinqpages:
+    path:     /cinq/six/{id}
+    defaults: { _controller: OCPlatformBundle:Annonce:cinqpages }
+
+    # src/OC/PlatformBundle/Resources/config/routing.yml
+
+oc_platform_view:
+    path:    /annonce/{id}
+    defaults:
+        _controller: OCPlatformBundle:Annonce:view
+    requirements:
+        id: \d+
+
+oc_platform_view_bis:
+    path:    /quatre/annonce/{id}
+    defaults: { _controller: OCPlatformBundle:Annonce:viewbis }
